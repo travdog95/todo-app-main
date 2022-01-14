@@ -77,3 +77,10 @@ a.theme-icon:hover {
 .hidden {
   display: none;
 }
+
+.help-text {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+}
