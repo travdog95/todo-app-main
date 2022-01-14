@@ -1,0 +1,5 @@
+:root {
+  --color-bright-blue: hsl(220, 98%, 61%);
+  --desktop-width: 1440px;
+  --mobile-width: 375px;
+}

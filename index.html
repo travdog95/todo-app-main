@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/theme-dark.css" />
+    <link rel="stylesheet" href="./styles/theme-light.css" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Todo app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  Todo
-
-  <!-- Add dynamic number --> items left
-
-  All
-  Active 
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+    </style>
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body class="dark">
+    <div class="container">
+      <div class="inner-container">
+        <header>
+          <div class="title">Todo</div>
+          <div class="theme-icon"></div>
+        </header>
+        <div class="create-todo"><input type="text" id="createTodo" /></div>
+        <div class="todo-list-container">
+          <ul class="todo-list">
+            <li class="todo-list-item">Jog around the park</li>
+            <li class="todo-list-item">Jog around the park</li>
+            <li class="todo-list-item">Jog around the park</li>
+            <li class="todo-list-item">Jog around the park</li>
+          </ul>
+        </div>
+        <div class="todo-list-footer">
+          <div class="items-remaining"><span>4</span> items left</div>
+          <div class="todo-list-filter">
+            <ul>
+              <li>All</li>
+              <li>Active</li>
+              <li>Completed</li>
+            </ul>
+          </div>
+          <button class="clear-todo-list">Clear Completed</button>
+        </div>
+        <div class="help-text">Drag and drop to reorder list</div>
+      </div>
+    </div>
+  </body>
 </html>

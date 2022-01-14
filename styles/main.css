@@ -1,0 +1,54 @@
+@import "variables.css";
+
+:root {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  --background-color: hsl(0, 0%, 98%);
+  --todo-list-background-color: hsl(235, 24%, 19%);
+  --text-color: hsl(235, 19%, 35%);
+  --disabled-text-color: hsl(234, 11%, 52%);
+  --hover-color: hsl(236, 33%, 92%);
+  --background-image: url("../images/bg-desktop-light.jpg");
+
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark {
+  --background-color: hsl(240, 20%, 12%);
+  --todo-list-background-color: hsl(235, 24%, 19%);
+  --text-color: hsl(234, 39%, 85%);
+  --disabled-text-color: hsl(234, 11%, 52%);
+  --hover-color: hsl(236, 33%, 92%);
+  --background-image: url("../images/bg-desktop-dark.jpg");
+}
+
+.container {
+  width: var(--desktop-width);
+  background: var(--background-image) no-repeat top center;
+  height: 100%;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.inner-container {
+  width: 40%;
+  border: 1px solid white;
+  margin: 0 auto;
+}
+
+.check {
+  background-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+}
