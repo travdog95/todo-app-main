@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
     <link rel="stylesheet" href="./styles/main.css" />
-
+    <script src="./js/main.js" defer></script>
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
@@ -35,17 +35,27 @@
           </a>
         </header>
         <div class="create-todo-container">
-          <div class="check"></div>
-          <input type="text" class="create-todo-input" placeholder="Create a new todo..." />
+          <div class="check-container">
+            <div class="check"></div>
+          </div>
+          <input
+            type="text"
+            id="createTodoInput"
+            class="create-todo-input"
+            placeholder="Create a new todo..."
+            maxlength="50"
+          />
         </div>
         <div class="todo-list-container">
           <ul class="todo-list">
-            <li class="todo-list-item">
+            <li class="todo-list-item" data-status="active">
               <div class="task-container">
-                <div class="check"></div>
+                <div class="check-container">
+                  <div class="check"><img src="./images/icon-check.svg" class="hidden" /></div>
+                </div>
                 <div class="task">Jog around the park</div>
               </div>
-              <div class="delete">
+              <div class="delete hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
                   <path
                     fill="#494C6B"
@@ -55,18 +65,49 @@
                 </svg>
               </div>
             </li>
-            <li class="todo-list-item">Jog around the park</li>
-            <li class="todo-list-item">Jog around the park</li>
-            <li class="todo-list-item">Jog around the park</li>
+            <li class="todo-list-item" data-status="active" class="">
+              <div class="task-container">
+                <div class="check-container">
+                  <div class="check"><img src="./images/icon-check.svg" class="hidden" /></div>
+                </div>
+                <div class="task">Have a good time</div>
+              </div>
+              <div class="delete hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                  <path
+                    fill="#494C6B"
+                    fill-rule="evenodd"
+                    d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+                  />
+                </svg>
+              </div>
+            </li>
+            <li class="todo-list-item status-completed" data-status="completed">
+              <div class="task-container">
+                <div class="check-container">
+                  <div class="check"><img src="./images/icon-check.svg" class="" /></div>
+                </div>
+                <div class="task">Lift weights</div>
+              </div>
+              <div class="delete hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                  <path
+                    fill="#494C6B"
+                    fill-rule="evenodd"
+                    d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+                  />
+                </svg>
+              </div>
+            </li>
           </ul>
         </div>
         <div class="todo-list-footer">
-          <div class="items-remaining"><span>4</span> items left</div>
+          <div class="items-remaining"><span></span> items left</div>
           <div class="todo-list-filter">
             <ul class="filter-options">
-              <li><a class="filter-all">All</a></li>
-              <li><a class="filter-active">Active</a></li>
-              <li><a class="filter-completed">Completed</a></li>
+              <li><a class="filter-option enabled" data-option="filter-all">All</a></li>
+              <li><a class="filter-option" data-option="filter-active">Active</a></li>
+              <li><a class="filter-option" data-option="filter-completed">Completed</a></li>
             </ul>
           </div>
           <a class="clear-todo-list">Clear Completed</a>

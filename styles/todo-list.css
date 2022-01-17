@@ -31,11 +31,14 @@ li.todo-list-item {
   background-color: var(--todo-list-background-color);
   font-size: 1rem;
   font-family: "Josefin Sans", sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 .create-todo-input:focus {
   outline: none;
 }
+
 .create-todo-input::placeholder {
   color: var(--color-accent);
 }
@@ -50,11 +53,43 @@ li.todo-list-item:first-of-type {
   border-bottom-right-radius: var(--border-radius);
 }
 
+.check-container {
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: grid;
+  place-items: center;
+}
+
 .check {
-  border: 1px solid var(--color-accent);
+  background-color: var(--todo-list-background-color);
   border-radius: 50%;
   width: 1rem;
   height: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.check-container:hover {
+  cursor: pointer;
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.task:hover,
+a:hover,
+.delete {
+  cursor: pointer;
+}
+
+.status-completed div.check,
+.status-completed div.check-container {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+.status-completed div.task {
+  color: var(--color-accent);
+  text-decoration: line-through;
 }
 
 ul.todo-list,
@@ -81,16 +116,13 @@ li.todo-list-item {
   justify-content: center;
 }
 
-.check-completed {
-  background-color: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
-}
-
 .todo-list-footer {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   font-size: 0.8rem;
   color: var(--color-accent);
 }
+
 .todo-list-footer,
 .filter-options {
   display: flex;
@@ -101,4 +133,13 @@ li.todo-list-item {
 
 .filter-options {
   gap: 0.75rem;
+}
+
+.filter-option:hover,
+.clear-todo-list:hover {
+  color: var(--text-color);
+}
+
+.enabled {
+  color: var(--color-bright-blue);
 }
