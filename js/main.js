@@ -4,7 +4,7 @@ const todoList = document.querySelector(".todo-list");
 
 let filterState = "filter-all";
 const todoListItemHtml = `
-    <div class="task-container" data-status="active">
+    <div class="task-container" >
       <div class="check-container">
         <div class="check"><img src="./images/icon-check.svg" class="hidden" /></div>
       </div>
@@ -50,13 +50,22 @@ const todoListItemEventHandlers = (todoListItem) => {
       todoListItem.querySelector(".check img").classList.add("hidden");
       todoListItem.setAttribute("data-status", "active");
     }
+
+    calcAndUpdateItemsLeft();
   });
 };
 
 const calcAndUpdateItemsLeft = () => {
-  const todoListItems = todoList.querySelectorAll("li.todo-list-item");
+  const todoItemStatuses = document.querySelectorAll("[data-status]");
+  let itemsLeft = 0;
 
-  document.querySelector(".items-remaining span").innerText = todoListItems.length;
+  todoItemStatuses.forEach((todoItemStatus) => {
+    if (todoItemStatus.dataset.status === "active") {
+      itemsLeft++;
+    }
+  });
+
+  document.querySelector(".items-remaining span").innerText = itemsLeft;
 };
 
 const addTodoItem = (value) => {
@@ -65,6 +74,7 @@ const addTodoItem = (value) => {
   //Create li element and add to list
   const newTodoItem = document.createElement("li");
   newTodoItem.className = "todo-list-item";
+  newTodoItem.dataset.status = "active";
   newTodoItem.innerHTML = todoListItemHtml;
   todoList.appendChild(newTodoItem);
 
@@ -87,6 +97,19 @@ const deleteTodoItem = (todoListItem) => {
   calcAndUpdateItemsLeft();
 };
 
+const filterTodoListItems = (filter) => {
+  const todoListItems = todoList.querySelectorAll("li.todo-list-item");
+
+  todoListItems.forEach((todoListItem) => {
+    if (filter === "all" || todoListItem.dataset.status === filter) {
+      todoListItem.classList.remove("hidden");
+    } else {
+      todoListItem.classList.add("hidden");
+    }
+  });
+};
+//Event Listeners
+
 //Add todo item when user presses enter
 document.getElementById("createTodoInput").addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
@@ -101,8 +124,23 @@ filterButtons.forEach((filterButton) => {
       fb.classList.remove("enabled");
     });
     this.classList.add("enabled");
+    filterTodoListItems(this.dataset.filter);
   });
 });
+
+document.querySelector(".clear-todo-list").addEventListener("click", (e) => {
+  clearCompleted();
+});
+
+const clearCompleted = () => {
+  const todoListItems = document.querySelectorAll("li.todo-list-item");
+
+  todoListItems.forEach((todoListItem) => {
+    if (todoListItem.dataset.status === "completed") {
+      deleteTodoItem(todoListItem);
+    }
+  });
+};
 
 const init = () => {
   const todoListItems = document.querySelectorAll("li.todo-list-item");
