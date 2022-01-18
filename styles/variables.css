@@ -1,11 +1,19 @@
 :root {
   --color-bright-blue: hsl(220, 98%, 61%);
-  --color-almost-white: hsl(0, 0%, 98%);
-  --color-very-light-grayish-blue: hsl(236, 33%, 92%);
-  --color-light-grayish-blue: hsl(233, 11%, 84%);
-  --color-dark-grayish-blue: hsl(234, 11%, 52%);
-  --color-accent: hsl(235, 19%, 35%);
   --border-radius: 0.25rem;
   --desktop-width: 1440px;
   --mobile-width: 375px;
+
+  --l-very-light-gray: hsl(0, 0%, 98%);
+  --l-very-light-grayish-blue: hsl(236, 33%, 92%);
+  --l-light-grayish-blue: hsl(233, 11%, 84%);
+  --l-dark-grayish-blue: hsl(236, 9%, 61%);
+  --l-very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+  --d-very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --d-light-grayish-blue: hsl(234, 39%, 85%);
+  --d-light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --d-dark-grayish-blue: hsl(234, 11%, 52%);
+  --d-very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --d-darkest-grayish-blue: hsl(237, 14%, 26%);
 }

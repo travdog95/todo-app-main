@@ -12,20 +12,20 @@
     </style>
     <title>Frontend Mentor | Todo app</title>
   </head>
-  <body class="dark">
+  <body class="">
     <div class="container">
       <div class="inner-container">
         <header>
           <div class="title">Todo</div>
           <a class="theme-icon">
-            <svg class="moon hidden" xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+            <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="26" height="26">
               <path
                 fill="#FFF"
                 fill-rule="evenodd"
                 d="M13 0c.81 0 1.603.074 2.373.216C10.593 1.199 7 5.43 7 10.5 7 16.299 11.701 21 17.5 21c2.996 0 5.7-1.255 7.613-3.268C23.22 22.572 18.51 26 13 26 5.82 26 0 20.18 0 13S5.82 0 13 0z"
               />
             </svg>
-            <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="26" height="26">
+            <svg class="sun hidden" xmlns="http://www.w3.org/2000/svg" width="26" height="26">
               <path
                 fill="#FFF"
                 fill-rule="evenodd"
@@ -47,70 +47,74 @@
           />
         </div>
         <div class="todo-list-container">
-          <ul class="todo-list">
-            <li class="todo-list-item" data-status="active">
-              <div class="task-container">
-                <div class="check-container">
-                  <div class="check"><img src="./images/icon-check.svg" class="hidden" /></div>
+          <div class="todo-list-items-container">
+            <ul class="todo-list">
+              <li class="todo-list-item" data-status="active">
+                <div class="task-container">
+                  <div class="check-container">
+                    <div class="check"><img src="./images/icon-check.svg" class="hidden" /></div>
+                  </div>
+                  <div class="task">Jog around the park</div>
                 </div>
-                <div class="task">Jog around the park</div>
-              </div>
-              <div class="delete hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-                  <path
-                    fill="#494C6B"
-                    fill-rule="evenodd"
-                    d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
-                  />
-                </svg>
-              </div>
-            </li>
-            <li class="todo-list-item" data-status="active" class="">
-              <div class="task-container">
-                <div class="check-container">
-                  <div class="check"><img src="./images/icon-check.svg" class="hidden" /></div>
+                <div class="delete hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                    <path
+                      fill="#494C6B"
+                      fill-rule="evenodd"
+                      d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+                    />
+                  </svg>
                 </div>
-                <div class="task">Have a good time</div>
-              </div>
-              <div class="delete hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-                  <path
-                    fill="#494C6B"
-                    fill-rule="evenodd"
-                    d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
-                  />
-                </svg>
-              </div>
-            </li>
-            <li class="todo-list-item status-completed" data-status="completed">
-              <div class="task-container">
-                <div class="check-container">
-                  <div class="check"><img src="./images/icon-check.svg" class="" /></div>
+              </li>
+              <li class="todo-list-item" data-status="active" class="">
+                <div class="task-container">
+                  <div class="check-container">
+                    <div class="check"><img src="./images/icon-check.svg" class="hidden" /></div>
+                  </div>
+                  <div class="task">Study the scriptures</div>
                 </div>
-                <div class="task">Lift weights</div>
-              </div>
-              <div class="delete hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-                  <path
-                    fill="#494C6B"
-                    fill-rule="evenodd"
-                    d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
-                  />
-                </svg>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="todo-list-footer">
-          <div class="items-remaining"><span></span> items left</div>
-          <div class="todo-list-filter">
-            <ul class="filter-options">
-              <li><a class="filter-option enabled" data-filter="all">All</a></li>
-              <li><a class="filter-option" data-filter="active">Active</a></li>
-              <li><a class="filter-option" data-filter="completed">Completed</a></li>
+                <div class="delete hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                    <path
+                      fill="#494C6B"
+                      fill-rule="evenodd"
+                      d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+                    />
+                  </svg>
+                </div>
+              </li>
+              <li class="todo-list-item status-completed" data-status="completed">
+                <div class="task-container">
+                  <div class="check-container">
+                    <div class="check"><img src="./images/icon-check.svg" class="" /></div>
+                  </div>
+                  <div class="task">Lift weights</div>
+                </div>
+                <div class="delete hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                    <path
+                      fill="#494C6B"
+                      fill-rule="evenodd"
+                      d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
+                    />
+                  </svg>
+                </div>
+              </li>
             </ul>
           </div>
-          <a class="clear-todo-list">Clear Completed</a>
+          <div class="todo-list-footer">
+            <div class="items-remaining-container">
+              <span class="items-remaining"></span> item<span class="plural">s</span> left
+            </div>
+            <div class="todo-list-filter">
+              <ul class="filter-options">
+                <li><a class="filter-option enabled" data-filter="all">All</a></li>
+                <li><a class="filter-option" data-filter="active">Active</a></li>
+                <li><a class="filter-option" data-filter="completed">Completed</a></li>
+              </ul>
+            </div>
+            <a class="clear-todo-list">Clear Completed</a>
+          </div>
         </div>
         <div class="help-text">Drag and drop to reorder list</div>
       </div>

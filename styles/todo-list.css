@@ -1,3 +1,12 @@
+.todo-list-container {
+  box-shadow: 0 25px 25px -5px hsl(0, 0%, 90%);
+  z-index: -1000;
+}
+
+body.dark .todo-list-container {
+  box-shadow: none;
+}
+
 .create-todo-container,
 li.todo-list-item,
 .todo-list-footer {
@@ -8,7 +17,7 @@ li.todo-list-item,
 
 .create-todo-container,
 li.todo-list-item {
-  height: 3rem;
+  height: 3.5rem;
 }
 
 .create-todo-container,
@@ -40,7 +49,7 @@ li.todo-list-item {
 }
 
 .create-todo-input::placeholder {
-  color: var(--color-accent);
+  color: var(--placeholder-text-color);
 }
 
 li.todo-list-item:first-of-type {
@@ -48,18 +57,17 @@ li.todo-list-item:first-of-type {
   border-top-right-radius: var(--border-radius);
 }
 
-.todo-list-footer {
+.todo-list-footer,
+.todo-list-container {
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
 }
 
 .check-container {
-  background-color: var(--color-accent);
+  background-color: var(--outline-color);
   border-radius: 50%;
   width: 1.2rem;
   height: 1.2rem;
-  display: grid;
-  place-items: center;
 }
 
 .check {
@@ -67,28 +75,30 @@ li.todo-list-item:first-of-type {
   border-radius: 50%;
   width: 1rem;
   height: 1rem;
+}
+
+.check-container,
+.check,
+.delete {
   display: grid;
   place-items: center;
 }
 
-.check-container:hover {
-  cursor: pointer;
-  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-}
-
 .task:hover,
 a:hover,
-.delete {
+.delete,
+.check-container:hover {
   cursor: pointer;
 }
 
 .status-completed div.check,
-.status-completed div.check-container {
+.status-completed div.check-container,
+.check-container:hover {
   background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
 .status-completed div.task {
-  color: var(--color-accent);
+  color: var(--completed-text-color);
   text-decoration: line-through;
 }
 
@@ -102,7 +112,7 @@ li.todo-list-item {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--outline-color);
 }
 
 .task-container {
@@ -110,17 +120,11 @@ li.todo-list-item {
   height: 100%;
 }
 
-.delete {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .todo-list-footer {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   font-size: 0.8rem;
-  color: var(--color-accent);
+  color: var(--footer-text-color);
 }
 
 .todo-list-footer,
@@ -142,4 +146,9 @@ li.todo-list-item {
 
 .enabled {
   color: var(--color-bright-blue);
+}
+
+.draggable {
+  cursor: move;
+  user-select: none;
 }

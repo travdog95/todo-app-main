@@ -2,7 +2,6 @@
 const filterButtons = document.querySelectorAll(".filter-option");
 const todoList = document.querySelector(".todo-list");
 
-let filterState = "filter-all";
 const todoListItemHtml = `
     <div class="task-container" >
       <div class="check-container">
@@ -56,16 +55,19 @@ const todoListItemEventHandlers = (todoListItem) => {
 };
 
 const calcAndUpdateItemsLeft = () => {
-  const todoItemStatuses = document.querySelectorAll("[data-status]");
+  const todoListItems = document.querySelectorAll("[data-status]");
   let itemsLeft = 0;
 
-  todoItemStatuses.forEach((todoItemStatus) => {
-    if (todoItemStatus.dataset.status === "active") {
+  todoListItems.forEach((todoListItem) => {
+    if (todoListItem.dataset.status === "active" && !todoListItem.classList.contains("hidden")) {
       itemsLeft++;
     }
   });
 
-  document.querySelector(".items-remaining span").innerText = itemsLeft;
+  const plural = itemsLeft === 1 ? "" : "s";
+
+  document.querySelector(".items-remaining").innerText = itemsLeft;
+  document.querySelector(".plural").innerText = plural;
 };
 
 const addTodoItem = (value) => {
@@ -106,9 +108,30 @@ const filterTodoListItems = (filter) => {
     } else {
       todoListItem.classList.add("hidden");
     }
+
+    calcAndUpdateItemsLeft();
   });
 };
+
+const clearCompleted = () => {
+  const todoListItems = document.querySelectorAll("li.todo-list-item");
+
+  todoListItems.forEach((todoListItem) => {
+    if (todoListItem.dataset.status === "completed") {
+      deleteTodoItem(todoListItem);
+    }
+  });
+};
+
+const toggleTheme = () => {
+  document.querySelector("body").classList.toggle("dark");
+  document.querySelector(".theme-icon .moon").classList.toggle("hidden");
+  document.querySelector(".theme-icon .sun").classList.toggle("hidden");
+};
+
+//********************** */
 //Event Listeners
+//********************** */
 
 //Add todo item when user presses enter
 document.getElementById("createTodoInput").addEventListener("keyup", function (event) {
@@ -128,19 +151,15 @@ filterButtons.forEach((filterButton) => {
   });
 });
 
+//Clear completed todo list items
 document.querySelector(".clear-todo-list").addEventListener("click", (e) => {
   clearCompleted();
 });
 
-const clearCompleted = () => {
-  const todoListItems = document.querySelectorAll("li.todo-list-item");
-
-  todoListItems.forEach((todoListItem) => {
-    if (todoListItem.dataset.status === "completed") {
-      deleteTodoItem(todoListItem);
-    }
-  });
-};
+//Theme changer
+document.querySelector(".theme-icon").addEventListener("click", (e) => {
+  toggleTheme();
+});
 
 const init = () => {
   const todoListItems = document.querySelectorAll("li.todo-list-item");
